@@ -1,0 +1,29 @@
+version: '3.2'
+services:
+  scouter:
+    image : scouterapm/scouter-server:2.7.0
+    restart : always
+    environment:
+      - SC_SERVER_ID=SCCOUTER-COLLECTOR 
+      - NET_HTTP_SERVER_ENABLED=true
+      - NET_HTTP_API_SWAGGER_ENABLED=true
+      - NET_HTTP_API_ENABLED=true
+      - MGR_PURGE_PROFILE_KEEP_DAYS=20
+      - MGR_PURGE_XLOG_KEEP_DAYS=20
+      - MGR_PURGE_COUNTER_KEEP_DAYS=30
+      - log_rotation_enabled=true
+      - log_keep_days=30
+      - mgr_purge_disk_usage_pct=90
+      - mgr_purge_keep_days = mgr_purge_profile_keep_days;
+      - mgr_purge_xlog_without_profile_keep_days = mgr_purge_xlog_keep_days;
+      - xlog_pasttime_lower_bound_ms=300
+      - xlog_error_jdbc_fetch_max=50000
+      
+      - JAVA_OPT=-Xms1024m -Xmx1024m
+    volumes:
+      - ./logs:/data/scouter/logs
+      - ./sc-data:/data/scouter/database
+    ports:
+      - 6180:6180
+      - 6100:6100
+      - 6100:6100/udp
