@@ -5,9 +5,9 @@ services:
     restart : always
     environment:
       - SC_SERVER_ID=SCCOUTER-COLLECTOR 
-      - NET_HTTP_SERVER_ENABLED=true
-      - NET_HTTP_API_SWAGGER_ENABLED=true
-      - NET_HTTP_API_ENABLED=true
+      - NET_HTTP_SERVER_ENABLED=false
+      - NET_HTTP_API_SWAGGER_ENABLED=false
+      - NET_HTTP_API_ENABLED=false
       - MGR_PURGE_PROFILE_KEEP_DAYS=20
       - MGR_PURGE_XLOG_KEEP_DAYS=20
       - MGR_PURGE_COUNTER_KEEP_DAYS=30
