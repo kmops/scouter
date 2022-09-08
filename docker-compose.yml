@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   scouter:
-    image : scouterapm/scouter-server:2.7.0
+    image : scouterapm/scouter-server:2.8.1
     restart : always
     environment:
       - SC_SERVER_ID=SCCOUTER-COLLECTOR 
