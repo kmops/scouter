@@ -22,7 +22,7 @@ services:
       - JAVA_OPT=-Xms1024m -Xmx1024m
     volumes:
       - ./logs:/data/scouter/logs
-      - ./sc-data:/data/scouter/database
+      - ./database:/data/scouter/database
     ports:
       - 6180:6180
       - 6100:6100
